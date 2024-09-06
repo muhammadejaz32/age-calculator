@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .container{
+            background:linear-gradient(180deg, rgb(95, 80, 80),rgb(99, 99, 238));
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            background:linear-gradient(to right, rgb(95, 80, 80),rgb(99, 99, 238));
+            padding: 7%;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px black;
+        }
+        input{
+            margin-bottom: 4%;
+            padding:10%;
+            font-size: 20px;
+            border-radius: 10px;
+            outline: none;
+            border: none;
+            text-align: center;
+            background: linear-gradient(180deg, white, rgb(87, 84, 84));
+
+        }
+        button{
+            padding: 7px 25px 7px 25px;
+            border-radius: 10px;
+            border: none;
+            margin-top: 4%;
+            font-size: 20px;
+            background: linear-gradient(to right, rgb(226, 214, 216),rgb(150, 150, 156),rgb(155,155,160));
+        }
+        span{
+            margin-top: 5%;
+            font-size: 20px;
+            text-transform: capitalize;
+            color: whitesmoke;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+        }
+        h1{
+            text-transform: capitalize;
+            text-align: center;
+            margin-bottom: 10px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <h1>age calculator</h1>
+            <input type="date" id="birthdate"><br>
+            <button onclick="agecalculator()">click</button><br>
+            <div>
+                <span id="result"></span>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function agecalculator(){
+            let birthdate = document.getElementById('birthdate').value;
+            var result = document.getElementById('result');
+            let today = new Date()
+            let dob = new Date(birthdate);
+            let age = today.getFullYear()-dob.getFullYear();
+            let m = today.getMonth()-dob.getMonth();
+            if(m===0 || dob.getFullYear()>today.getFullYear()&&dob.getMonth()>today.getMonth()){
+                age--;
+            }
+
+            else{
+                result.innerHTML = "you are "+" " + age+" "+"years" +" "+ m +" "+ "months old";
+            }
+
+
+        }
+    </script>
+</body>
+</html>
